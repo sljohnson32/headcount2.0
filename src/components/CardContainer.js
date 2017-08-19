@@ -1,13 +1,16 @@
 
 import React from 'react'
+import SchoolCard from './SchoolCard'
 
-const CardContainer = () => {
+const CardContainer = ({ selectedSchools }) => {
 
-  //controller for managing what two cards are selected to be compared
+  const selectedSchoolsDisplay = selectedSchools.map((school, index) =>
+    <SchoolCard school={school} />
+  )
 
   return (
     <div className="card-container">
-      Selected school cards will go here
+      {selectedSchoolsDisplay}
     </div>
   )
 };

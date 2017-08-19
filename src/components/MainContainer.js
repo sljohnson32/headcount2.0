@@ -3,13 +3,11 @@ import React from 'react'
 import CardContainer from './CardContainer'
 import CompareContainer from './CompareContainer'
 
-const MainContainer = () => {
-
-  //controller for managing what two cards are selected to be compared
+const MainContainer = ({ selectedSchools }) => {
 
   return (
     <div className="main-container">
-      <CardContainer />
+      <CardContainer selectedSchools={ selectedSchools }/>
       <CompareContainer />
     </div>
   )

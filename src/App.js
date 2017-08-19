@@ -46,7 +46,7 @@ class App extends Component {
         <SideBar schools={ this.state.schoolsArr }
                  selectSchool={ this.selectSchool }
         />
-        <MainContainer />
+        <MainContainer selectedSchools={ this.state.selectedSchools }/>
       </div>
     );
   }
