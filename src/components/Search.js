@@ -7,6 +7,7 @@ const Search = () => {
 
   return (
     <div className="search-container">
+      <h3>School Search</h3>
       <SearchInput />
     </div>
   )

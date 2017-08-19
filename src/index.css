@@ -3,29 +3,54 @@ body {
   padding: 0;
   font-family: sans-serif;
   height: 100vh;
+  width: 100vh
 }
 
 .header {
+  display: inline;
   position: relative;
   height: 10vh;
+  left: 3%;
 }
+
 .sidebar-container {
   float: left;
-  height: 89vh;
-  min-width: 30%;
-  padding: 0 15px;
+  height: 80vh;
+  width: 24vw;
+  padding: 15px;
   overflow-x: auto;
+}
+
+.search-container {
+  border: 2px dotted black;
+  padding: 0 0 5px 25px;
+
+}
+
+.search-input {
+  width: inherit;
+  padding-bottom: 10px;
 }
 
 .school-card-container {
   position: fixed;
   overflow-y: scroll;
-  padding-top: 5px;
-  height: 84vh;
+  padding: 10px 0;
+  height: 60vh;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 
 .sidebar-container h4 {
-  margin: 0;
+  margin: 0 5px 0 0;
   padding: 5px;
   font-size: 12px;
 }
@@ -41,5 +66,33 @@ body {
 }
 
 .main-container {
-  position: relative;
+  margin-left: 37vw;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  height: 60vh;
+  width: 68vw;
+}
+
+.school-card {
+  height: 140px;
+  width: 100px;
+  margin: 5px;
+  align-items: center;
+}
+
+.school-card p {
+  font-size: 10px;
+}
+
+.school-card ul {
+  padding: 0 0 0 5px;
+  margin: 0;
+  font-size: 8px;
+  list-style-type: none;
+  width: inherit;
+  align-content: flex-start;
 }
