@@ -19,11 +19,9 @@ class SideBarCards extends Component {
     let { school, selectSchool } = this.props;
 
     return (
-      <div className={ this.state.selected ? "sidebar-card selected" : "sidebar-card"}
-           onClick={ () => this.handleSelectSchools(selectSchool, school) }
-      >
-        <h4>{school.location}</h4>
-      </div>
+        <h4 className={ this.state.selected ? "sidebar-card selected" : "sidebar-card"}
+             onClick={ () => this.handleSelectSchools(selectSchool, school) }
+        >{school.location}</h4>
     )
   }
 };

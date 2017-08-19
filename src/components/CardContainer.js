@@ -5,7 +5,10 @@ import SchoolCard from './SchoolCard'
 const CardContainer = ({ selectedSchools }) => {
 
   const selectedSchoolsDisplay = selectedSchools.map((school, index) =>
-    <SchoolCard school={school} />
+    <SchoolCard location={school.location}
+                data={school.data}
+                key={index}
+    />
   )
 
   return (
