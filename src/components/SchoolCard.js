@@ -1,17 +1,18 @@
 import React from 'react'
 
-const SchoolCard = ({ data, location }) => {
+const SchoolCard = ({ school, handleCompareSelect }) => {
 
-  const dataObj = data;
-  const dataKeys = Object.keys(data);
+  const dataObj = school.data;
+  const dataKeys = Object.keys(school.data);
 
   const schoolDataDisplay = dataKeys.map((key, index) =>
-    <li key={index} className={(data[key] > .5) ? "green" : "red"}>{key}: {data[key]}</li>
+    <li key={index} className={(school.data[key] > .5) ? "green" : "red"}>{key}: {school.data[key]}</li>
   )
 
   return (
-    <div className="school-card">
-      <p>{location}</p>
+    <div className="school-card"
+         onClick={ () => handleCompareSelect(school) }>
+      <p>{school.location}</p>
       <ul className="school-data">
         {schoolDataDisplay}
       </ul>

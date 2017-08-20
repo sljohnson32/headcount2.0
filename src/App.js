@@ -14,9 +14,11 @@ class App extends Component {
     this.state = {
       schoolsArr: [],
       selectedSchools: [],
+      comparedSchools: []
     }
     this.selectSchool = this.selectSchool.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
+    this.handleCompareSelect = this.handleCompareSelect.bind(this)
   }
 
   componentDidMount() {
@@ -42,6 +44,22 @@ class App extends Component {
     this.setState({ selectedSchools: selectedSchools })
   }
 
+  handleCompareSelect(school) {
+    let schoolIndex = this.state.comparedSchools.indexOf(school)
+    let comparedSchools = this.state.comparedSchools
+
+    if (schoolIndex !== -1) {
+      comparedSchools.splice(schoolIndex, 1)
+      this.setState({ comparedSchools: comparedSchools})
+      } else if (comparedSchools.length < 2) {
+        comparedSchools.push(school)
+        this.setState({ comparedSchools: comparedSchools})
+        } else if (comparedSchools.length === 2) {
+          alert('You can only compare two schools at a time.  Please deselect a school to continue with your comparison.')
+          }
+  }
+
+
   render() {
 
     console.log('schoolsArr ', this.state.schoolsArr)
@@ -53,7 +71,9 @@ class App extends Component {
                  handleSearch={ this.handleSearch }
                  selectSchool={ this.selectSchool }
         />
-        <MainContainer selectedSchools={ this.state.selectedSchools }/>
+        <MainContainer selectedSchools={ this.state.selectedSchools }
+                       comparedSchools={ this.state.comparedSchools }
+                       handleCompareSelect={ this.handleCompareSelect }/>
       </div>
     );
   }

@@ -2,12 +2,12 @@
 import React from 'react'
 import SchoolCard from './SchoolCard'
 
-const CardContainer = ({ selectedSchools }) => {
+const CardContainer = ({ selectedSchools, handleCompareSelect }) => {
 
   const selectedSchoolsDisplay = selectedSchools.map((school, index) =>
-    <SchoolCard location={school.location}
-                data={school.data}
-                key={index}
+    <SchoolCard key={ index }
+                school={ school }
+                handleCompareSelect={ handleCompareSelect }
     />
   )
 

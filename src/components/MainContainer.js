@@ -1,16 +1,17 @@
 
-import React from 'react'
+import React, { Component } from 'react'
 import CardContainer from './CardContainer'
 import CompareContainer from './CompareContainer'
 
-const MainContainer = ({ selectedSchools }) => {
+const MainContainer = ({ selectedSchools, handleCompareSelect, comparedSchools }) => {
 
   return (
     <div className="main-container">
-      <CardContainer selectedSchools={ selectedSchools }/>
-      <CompareContainer />
+      <CardContainer selectedSchools={ selectedSchools }
+                     handleCompareSelect={ handleCompareSelect } />
+      <CompareContainer comparedSchools={ comparedSchools } />
     </div>
   )
-};
+}
 
 export default MainContainer;
