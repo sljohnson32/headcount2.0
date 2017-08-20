@@ -6,8 +6,8 @@ const SchoolCard = ({ data, location }) => {
   const dataKeys = Object.keys(data);
 
   const schoolDataDisplay = dataKeys.map((key, index) =>
-    <li>{key}: {data[key]}</li>
-  ) 
+    <li key={index} className={(data[key] > .5) ? "green" : "red"}>{key}: {data[key]}</li>
+  )
 
   return (
     <div className="school-card">
