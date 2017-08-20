@@ -13,16 +13,22 @@ class App extends Component {
     super()
     this.state = {
       schoolsArr: [],
-      selectedSchools: []
+      selectedSchools: [],
     }
     this.selectSchool = this.selectSchool.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   componentDidMount() {
     let schoolsArrData = Object.keys(schoolData.data).map(key => {
       return schoolData.data[key]
     })
-    this.setState({ schoolsArr: schoolsArrData })
+    this.setState({ schoolsArr: schoolsArrData, menuSchools: schoolsArrData })
+  }
+
+  handleSearch(input) {
+    let newArr = schoolData.findAllMatches(input);
+    this.setState({ schoolsArr: newArr })
   }
 
   selectSchool(status, school) {
@@ -44,6 +50,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <SideBar schools={ this.state.schoolsArr }
+                 handleSearch={ this.handleSearch }
                  selectSchool={ this.selectSchool }
         />
         <MainContainer selectedSchools={ this.state.selectedSchools }/>

@@ -7,7 +7,7 @@ class SideBar extends Component {
 
 
   render(){
-    let { schools, selectSchool, selectedSchools } = this.props
+    let { schools, handleSearch, selectSchool, selectedSchools } = this.props
 
     const schoolDisplay = schools.map((school, index) =>
       <SideBarCards school={ school }
@@ -17,7 +17,7 @@ class SideBar extends Component {
 
     return (
       <div className="sidebar-container">
-        <Search />
+        <Search handleSearch={ handleSearch }/>
         <section className="school-card-container">
           {schoolDisplay}
         </section>
