@@ -1,26 +1,19 @@
 import React, { Component } from 'react'
 
 class SideBarCards extends Component {
-  constructor() {
-    super()
-    this.state={
-      selected: false
-    }
-  }
 
-  handleSelectSchools(selectSchool, school) {
-    console.log('working')
-    let selectStatus = !this.state.selected
-    selectSchool(selectStatus, school)
-    this.setState({ selected: selectStatus })
+  checkSelectStatus(school, selectedSchools) {
+    if (selectedSchools.indexOf(school) > -1) {
+      return true
+    } else return false
   }
 
   render() {
-    let { school, selectSchool } = this.props;
+    let { school, selectSchool, selectedSchools } = this.props;
 
     return (
-        <h4 className={ this.state.selected ? "sidebar-card selected" : "sidebar-card"}
-             onClick={ () => this.handleSelectSchools(selectSchool, school) }
+        <h4 className={ this.checkSelectStatus(school, selectedSchools) ? "sidebar-card selected" : "sidebar-card"}
+             onClick={ () => selectSchool(school) }
         >{school.location}</h4>
     )
   }

@@ -13,6 +13,7 @@ class App extends Component {
     super()
     this.state = {
       schoolsArr: [],
+      menuSchools: [],
       selectedSchools: [],
       comparedSchools: []
     }
@@ -30,12 +31,12 @@ class App extends Component {
 
   handleSearch(input) {
     let newArr = schoolData.findAllMatches(input);
-    this.setState({ schoolsArr: newArr })
+    this.setState({ menuSchools: newArr })
   }
 
-  selectSchool(status, school) {
-    let selectedSchools = this.state.selectedSchools
-    if (status === true) {
+  selectSchool(school) {
+    let selectedSchools = this.state.selectedSchools.slice()
+    if (selectedSchools.indexOf(school) === -1) {
       selectedSchools.push(school);
     } else {
       let schoolIndex = selectedSchools.indexOf(school);
@@ -46,7 +47,7 @@ class App extends Component {
 
   handleCompareSelect(school) {
     let schoolIndex = this.state.comparedSchools.indexOf(school)
-    let comparedSchools = this.state.comparedSchools
+    let comparedSchools = this.state.comparedSchools.slice()
 
     if (schoolIndex !== -1) {
       comparedSchools.splice(schoolIndex, 1)
@@ -67,9 +68,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <SideBar schools={ this.state.schoolsArr }
+        <SideBar schools={ this.state.menuSchools }
                  handleSearch={ this.handleSearch }
                  selectSchool={ this.selectSchool }
+                 selectedSchools={ this.state.selectedSchools }
         />
         <MainContainer selectedSchools={ this.state.selectedSchools }
                        comparedSchools={ this.state.comparedSchools }
