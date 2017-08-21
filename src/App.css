@@ -106,3 +106,9 @@
 .red {
   color: red;
 }
+
+.compare-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 68vw;
+}

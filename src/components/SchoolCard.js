@@ -2,7 +2,6 @@ import React from 'react'
 
 const SchoolCard = ({ school, handleCompareSelect }) => {
 
-  const dataObj = school.data;
   const dataKeys = Object.keys(school.data);
 
   const schoolDataDisplay = dataKeys.map((key, index) =>

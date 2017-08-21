@@ -58,12 +58,9 @@ class App extends Component {
         } else if (comparedSchools.length === 2) {
           alert('You can only compare two schools at a time.  Please deselect a school to continue with your comparison.')
           }
-  }
-
+  }     
 
   render() {
-
-    console.log('schoolsArr ', this.state.schoolsArr)
 
     return (
       <div className="App">

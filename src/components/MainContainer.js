@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React from 'react'
 import CardContainer from './CardContainer'
 import CompareContainer from './CompareContainer'
 
